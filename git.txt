@@ -1,0 +1,9 @@
+Git to taki system, 
+który pomaga ogarniać zmiany w kodzie i zapisywać jego kolejne wersje.
+Commit to zapisanie zmian, 
+które zrobiliśmy. Branch to osobna gałąź,
+na której możemy spokojnie robić nowe rzeczy,
+bez rozwalania głównego kodu. Push wysyła nasze zmiany na serwer, 
+a pull pobiera zmiany, które zrobili inni. 
+Dzięki Gitowi można też łatwo wrócić do wcześniejszej wersji projektu, 
+jeśli coś pójdzie nie tak.
