@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sprawdzian jQuery</title>
+        <script
+              src="https://code.jquery.com/jquery-4.0.0.min.js"
+              integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+              crossorigin="anonymous">
+        </script>
+        <script>
+            $(function(){
+                // Tu wpisz swój kod
+                //zadanie 1
+                $(function(){
+                $("#kontener").css("background-color", "lightyellow");
+                $('[href="#"]').attr("https://pl.wikipedia.org/wiki/Książka");
+                $("li").eq(3).css("font-family","italic");
+                $("li").not("#pierwsza").css("background-color","lightgrey")
+                $("li").last().css("font-weight", "bold");
+                })
+                //zadanie 2
+                $(function(){
+                let a = $("li").first().text();
+                console.log(a);
+                let b = $("ul").html();
+                console.log(b);
+                })
+                $(function(){
+                let a = $("h1").text();
+                $("#info").text("Nagłówek: ").append(a);
+                })
+                $(function(){
+                    let a = $("li").first().text();
+                    $("li").first().remove();
+                    $("ul").append(a);
+                })
+                //zadanie 3
+                $("#dodajKoniec").click(function(){
+                    let a = $("#tytul").text().value;
+                    $("ul").append(a);
+                })
+                $("#dodajPoczatek").click(function(){
+                    let a = $("#tytul").text().value;
+                    $("ul").prepend(a);
+                })
+
+                
+                //zadanie 4
+                $("#kwadrat")
+            });
+        </script>
+        <style>
+            body { font-family: Arial, sans-serif; max-width: 600px; margin: 30px auto; }
+            #kwadrat { width: 120px; height: 120px; background-color: lightgray; }
+        </style>
+    </head>
+    <body>
+        <div id="kontener">
+            <h1>Moja biblioteka</h1>
+            <ul id="ksiazki">
+                <li id="pierwsza"><a href="#">Wiedźmin</a></li>
+                <li><a href="#">Hobbit</a></li>
+                <li><a href="#">Lalka</a></li>
+                <li><a href="#">Solaris</a></li>
+                <li><a href="#">Quo Vadis</a></li>
+                <li><a href="#">Pan Tadeusz</a></li>
+            </ul>
+            <p id="info"></p>
+        </div>
+ 
+        <hr>
+        <input type="text" id="tytul" placeholder="Tytuł książki">
+        <button id="dodajKoniec">Dodaj na koniec</button>
+        <button id="dodajPoczatek">Dodaj na początek</button>
+        <br><br>
+        <input type="checkbox" id="regulamin">
+        <label for="regulamin">Akceptuję regulamin</label>
+        <button id="zapisz" disabled>Zapisz listę</button>
+        <p id="komunikat"></p>
+ 
+        <hr>
+        <div id="kwadrat"></div>
+        <button id="reset">Reset</button>
+        <p id="licznik">Kliknięto 0 razy</p>
+    </body>
+</html>
