@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script
+  src="https://code.jquery.com/jquery-4.0.0.min.js"
+  integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+  crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+        $("#tekst").keypress(function(){
+            let numberofcharacters = $("#tekst").val().length
+            if(numberofcharacters <= 10){
+            $("#pozostalo").text("Pozostało znaków: " + (10 - ($("#tekst").val().length)))              
+            } else {
+                $("#pozostalo").text("Pozostało znaków: " + 0)
+                 $("#pozostalo").addClass("blad")
+            }
+
+            if(e.key=="Escape"){
+                $("#pozostalo").text("pozostało znaków: 10")
+                $("#pozostalo").raemoveClass("blad")
+                $(this).val("")
+            }
+
+            if(e.key == "Enter" && $(this).val() == "admin "){
+                console.log("Dostęp przyznany")
+            }
+        })
+    })
+  </script>
+   </head>
+   <style>
+        .blad{
+            background-color: red;
+        }
+   </style>
+  <body>
+    <input type="text" id="tekst">
+    <p id="pozostalo">Pozostało znaków: </p>
+  </body>
+  </html>
