@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script
+  src="https://code.jquery.com/jquery-4.0.0.min.js"
+  integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+  crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+
+        $("#guzik2").click(function(){
+            $("#parag1").show()
+        })
+        $("#guzik1").click(function(){
+            $("#parag1").hide()
+        })
+        $("guzik3").click(function(){
+            $("#parag1").toggle();
+        })
+        $("#guzik4").click(function(){
+            $("#parag1").slideUp()
+        })
+        $("#guzik5").click(function(){
+            $("#parag1").slideDown()
+        })
+        $("guzik6").click(function(){
+            $("#parag1").slideToggle();
+        })
+    })
+  </script>
+   </head>
+   <style>
+
+   </style>
+  <body>
+    <p id="parag1">Muala</p>
+    <button id="guzik1">ukryj</button>
+    <button id="guzik2">pokaz</button>
+    <button id="guzik3">pokaz/ukryj</button>
+    <button id="guzik4">gora</button>
+    <button id="guzik5">dol</button>
+    <button id="guzik6">slidetog</button>
+  </body>
+  </html>
