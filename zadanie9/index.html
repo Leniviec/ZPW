@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script
+  src="https://code.jquery.com/jquery-4.0.0.min.js"
+  integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+  crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+        $("#newsletter").change(function(){
+            if($(this).is(":checked")){
+                $("#stan").text("Zapisano.")
+            } else {
+                $("#stan").text("Wypisano!")
+            }
+        })
+        $("#zarejestur").prop("disabled",true)
+
+            $("#regulamin").change(function(){
+            if($(this).is(":checked")){
+                $("#zarejestur").prop("disabled",false)
+            } else {
+                $("#zarejestur").prop("disabled",true)
+            }
+        })
+        $("#tekst").on("input", function(){
+            $("#podglad").text($(this).val())
+        })
+
+        $("#limit").css("color","green")
+        $("#textarea").on("input", function(){
+            let characterLeft = 100 - $(this).val().length
+            $("#limit").text(characterLeft)
+            if(characterLeft < 10){
+                $("#limit").css("color","red")
+            } else {
+                $("#limit").css("color","green")
+            }
+        })
+    })
+  </script>
+   </head>
+   <style>
+
+   </style>
+  <body>
+    <input type="checkbox" id="newsletter"> Chcę newsletter
+    <p id="stan"></p>
+    <hr>
+    <input type="checkbox" id="regulamin"> Akceptuje regulamin
+    <button id="zarejestur">Zarejestruj</button>
+    <hr>
+    <input type="text" id="tekst">
+    <p>Podgląd: <span id="podglad"></span></p>
+    <hr>
+    <input type="text" id="textarea" maxlength="100">
+    <p>zostalo: <span id="limit">100</span></p>
+  </body>
+  </html>
