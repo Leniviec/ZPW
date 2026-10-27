@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script
+  src="https://code.jquery.com/jquery-4.0.0.min.js"
+  integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+  crossorigin="anonymous"></script>
+  <script>
+
+$(function() {
+    $("#szukaj").on("keydown", function(e) {
+        let a = $(this).val().trim();
+        if (e.key === "Enter") {
+            if (a === "") {
+                $("#wynik").text("Wpisz Fraze!!!").css("color", "red");
+            } else {
+                $("#wynik").text("Szukam: " + a).css("color", "black");
+            }
+        }
+        if (e.key === "Escape") {
+            $(this).val("");
+            $("#wynik").text("");
+        }
+    });
+
+$("#haslo").on("input", function() {
+    let dlugosc = $("#haslo").val().trim().length;
+    $("#sila").removeClass("slabe srednie silne");
+    if (dlugosc < 6) {
+        $("#sila").text("słabe").addClass("slabe");
+    } else if (dlugosc <= 9) {
+        $("#sila").text("średnie").addClass("srednie");
+    } else {
+        $("#sila").text("silne").addClass("silne");
+    }
+});
+
+});
+
+  </script>
+   </head>
+   <style>
+    .slabe{
+      background-color: red;
+    }
+    .srednie{
+      background-color: orange;
+    }
+    .silne{
+      background-color: greenyellow;
+    }
+   </style>
+  <body>
+<p>zadanie 1</p>
+<input type="text" id="szukaj" placeholder="Szukaj...">
+<p id="wynik"></p>
+<hr>
+<p>zadanie 2</p>
+<input type="password" id="haslo">
+<p id="sila"></p>
+<hr>
+<p>zadanie 3</p>
+<form id="logowanie">
+  <input type="text" id="login" placeholder="Login">
+  <input type="password" id="pass" placeholder="Hasło">
+  <button type="submit">Zaloguj</button>
+</form>
+<p id="info"></p>
+<hr>
+<p>zadanie 4</p>
+<select id="rozmiar">
+  <option value="14">Mały</option>
+  <option value="20">Średni</option>
+  <option value="28">Duży</option>
+</select>
+<p id="tekst">Przykładowy tekst akapitu.</p>
+<hr>
+<p>zadanie 5</p>
+<label><input type="checkbox" class="dodatek" value="3"> Ser (3 zł)</label>
+<label><input type="checkbox" class="dodatek" value="5"> Szynka (5 zł)</label>
+<label><input type="checkbox" class="dodatek" value="4"> Pieczarki (4 zł)</label>
+<p>Cena: <span id="suma">20</span> zł</p>
+<label><input type="checkbox" id="akcept"> Potwierdzam zamówienie</label>
+<button id="zamow" disabled>Zamów</button>
+<hr>
+<p>zadanie 6</p>
+<input type="text" id="waga" placeholder="Waga (kg)">
+<input type="text" id="wzrost" placeholder="Wzrost (cm)">
+<button id="licz">Oblicz</button>
+<p id="bmi"></p>
+  </body>
+  </html>
