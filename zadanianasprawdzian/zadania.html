@@ -37,7 +37,20 @@ $("#haslo").on("input", function() {
         $("#sila").text("silne").addClass("silne");
     }
 });
+$("#logowanie").on("submit", function(e) {
+    e.preventDefault();
 
+    let login = $("#login").val().trim();
+    let haslo = $("#pass").val();
+
+    if (login === "") {
+        $("#info").text("Podaj login").css("color", "red");
+    } else if (haslo.length < 6) {
+        $("#info").text("Hasło za krótkie").css("color", "red");
+    } else {
+        $("#info").text("Witaj, " + login + "!").css("color", "green");
+    }
+});
 });
 
   </script>
