@@ -51,6 +51,68 @@ $("#logowanie").on("submit", function(e) {
         $("#info").text("Witaj, " + login + "!").css("color", "green");
     }
 });
+    
+    $("#rozmiar").on("change", function() {
+        let rozmiar = $(this).val();
+        $("#tekst").css("font-size", rozmiar + "px");
+        $("#aktualny").text("Aktualny rozmiar: " + rozmiar + " px");
+    });
+
+    $("#tekst").css("font-size", $("#rozmiar").val() + "px");
+    $("#aktualny").text("Aktualny rozmiar: " + $("#rozmiar").val() + " px");
+
+
+    $(".dodatek").on("change", function() {
+        let suma = 20;
+        $(".dodatek:checked").each(function() {
+            suma += Number($(this).val());
+        });
+        $("#suma").text(suma);
+    });
+    $("#akcept").on("change", function() {
+        $("#zamow").prop("disabled", !$(this).is(":checked"));
+    });
+    $("#zamow").on("click", function() {
+        alert("Zamówienie przyjęte! Cena: " + $("#suma").text() + " zł");
+    });
+
+
+    $("#licz").on("click", function() {
+        let wagaTekst = $("#waga").val().trim();
+        let wzrostTekst = $("#wzrost").val().trim();
+
+        $("#bmi").css("color", "red");
+
+        if (wagaTekst === "" || wzrostTekst === "") {
+            $("#bmi").text("Uzupełnij oba pola!");
+            return;
+        }
+
+        if (isNaN(wagaTekst) || isNaN(wzrostTekst)) {
+            $("#bmi").text("Waga i wzrost muszą być liczbami!");
+            return;
+        }
+
+        let waga = Number(wagaTekst);
+        let wzrost = Number(wzrostTekst);
+
+        if (waga < 20 || waga > 300) {
+            $("#bmi").text("Waga musi być w zakresie 20–300 kg.");
+            return;
+        }
+
+        if (wzrost < 100 || wzrost > 250) {
+            $("#bmi").text("Wzrost musi być w zakresie 100–250 cm.");
+            return;
+        }
+
+        let wynik = waga / Math.pow(wzrost / 100, 2);
+
+        $("#bmi")
+            .text("Twoje BMI wynosi: " + wynik.toFixed(1))
+            .css("color", "green");
+    });
+
 });
 
   </script>
